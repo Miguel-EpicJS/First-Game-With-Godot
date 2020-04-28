@@ -10,6 +10,7 @@ onready var animationPlayer = $AnimationPlayer
 
 onready var animationTree = $AnimationTree
 
+onready var animationState = animationTree.get("parameters/playback")
 
 func _physics_process(delta):
 	
@@ -23,11 +24,11 @@ func _physics_process(delta):
 		
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
-		
+		animationState.travel("Run")
 		speed = speed.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 		
 	else:
-		
+		animationState.travel("Idle")
 		speed = speed.move_toward(Vector2.ZERO, FRICTION * delta)
 	
 	speed = move_and_slide(speed)
