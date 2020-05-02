@@ -956,24 +956,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [node name="World" type="Node2D"]
 
-[node name="YSort" type="YSort" parent="."]
-z_index = 1
-
-[node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 146, 79 )
-
-[node name="StaticBody2D" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 46, 63 )
-
-[node name="StaticBody2D3" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 176, 141 )
-
-[node name="StaticBody2D2" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 184, 170 )
-
-[node name="StaticBody2D4" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 98, 60 )
-
 [node name="Background" type="Node" parent="."]
 
 [node name="grassBackground" type="Sprite" parent="Background"]
@@ -995,3 +977,23 @@ tile_set = SubResource( 99 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 6, 0, 0, 7, 0, 2, 65542, 0, 131072, 65543, 0, 131074, 196615, 0, 0, 196616, 0, 1, 196617, 0, 2, 262144, 0, 0, 262145, 0, 2, 262151, 0, 65536, 262152, 0, 65537, 262153, 0, 65538, 327680, 0, 131072, 327681, 0, 131074, 327687, 0, 131072, 327688, 0, 131073, 327689, 0, 131074 )
+
+[node name="YSort" type="YSort" parent="."]
+z_index = 1
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 146, 79 )
+
+[node name="Brushes" type="YSort" parent="YSort"]
+
+[node name="StaticBody2D" parent="YSort/Brushes" instance=ExtResource( 1 )]
+position = Vector2( 46, 63 )
+
+[node name="StaticBody2D3" parent="YSort/Brushes" instance=ExtResource( 1 )]
+position = Vector2( 176, 141 )
+
+[node name="StaticBody2D2" parent="YSort/Brushes" instance=ExtResource( 1 )]
+position = Vector2( 184, 170 )
+
+[node name="StaticBody2D4" parent="YSort/Brushes" instance=ExtResource( 1 )]
+position = Vector2( 98, 60 )
