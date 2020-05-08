@@ -12,7 +12,7 @@ enum{
 
 var speed = Vector2.ZERO
 
-var roll_vector = Vector2.DOWN
+var roll_vector = Vector2.UP
 
 var state = MOVE
 
