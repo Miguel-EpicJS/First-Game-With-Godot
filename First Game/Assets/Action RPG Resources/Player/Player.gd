@@ -11,17 +11,18 @@ enum{
 }
 
 var speed = Vector2.ZERO
-
 var roll_vector = Vector2.UP
-
 var state = MOVE
+var stats = PlayerStats
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
+onready var hurtBox = $Hurtbox
 
 func _ready():
+	stats.connect("no_health", self , "queue_free")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 
@@ -84,3 +85,9 @@ func roll_animation_finished():
 	
 func move():
 	speed = move_and_slide(speed)
+
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= 1
+	hurtBox.start_invincibility(0.6)
+	hurtBox.create_hit_effect()

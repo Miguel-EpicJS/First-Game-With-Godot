@@ -988,7 +988,7 @@ z_index = 1
 position = Vector2( 282, 58 )
 
 [node name="Bat2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 121, 51 )
+position = Vector2( 82.1654, 13.0414 )
 
 [node name="Bat3" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 103, 121 )
